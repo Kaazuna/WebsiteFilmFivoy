@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#app {
+    display: flex;
+    height: calc(100vh - 56px);
+}
+
+.sidebar {
+    width: 280px;
+    background-color: #343a40;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin-top: 0;
+}
+
+.content {
+    background-color: #343a40;
+}
+
+.custom-ratio-2-3 {
+    position: relative;
+    width: 100%;
+    padding-top: 150%; /* 3 / 2 = 1.5 → jadi 150% */
+    overflow: hidden;
+}
+
+.custom-ratio-2-3 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+li:hover {
+    background-color: rgb(85, 85, 98);
+    border-radius: 25px;
+    width: 1000px;
+    transition: 1s;
+}
+
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -280px;
+        height: 100%;
+        transition: left 0.3s ease;
+        z-index: 1050;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    .content {
+        padding-top: 3.5rem;
+        /* for fixed navbar */
+    }
+}
